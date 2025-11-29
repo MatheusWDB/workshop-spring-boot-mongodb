@@ -1,7 +1,6 @@
 package br.com.hematsu.workshopmongo.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -24,8 +23,7 @@ public class UserService {
     }
 
     public User findById(String id) {
-        Optional<User> obj = repo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+        return repo.findById(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
 
     public User insert(User obj) {
